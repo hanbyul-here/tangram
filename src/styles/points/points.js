@@ -16,9 +16,8 @@ import {TextLabels} from '../text/text_labels';
 import {VIEW_PAN_SNAP_TIME} from '../../view';
 import debugSettings from '../../utils/debug_settings';
 
-let fs = require('fs');
-const shaderSrc_pointsVertex = fs.readFileSync(__dirname + '/points_vertex.glsl', 'utf8');
-const shaderSrc_pointsFragment = fs.readFileSync(__dirname + '/points_fragment.glsl', 'utf8');
+import shaderSrc_pointsVertex from './points_vertex.glsl';
+import shaderSrc_pointsFragment from './points_fragment.glsl';
 
 const PLACEMENT = LabelPoint.PLACEMENT;
 

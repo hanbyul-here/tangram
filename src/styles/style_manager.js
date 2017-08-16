@@ -10,11 +10,10 @@ import {Points} from './points/points';
 import {TextStyle} from './text/text';
 import {RasterStyle} from './raster/raster';
 
-let fs = require('fs');
-const shaderSrc_accessors = fs.readFileSync(__dirname + '/../gl/shaders/accessors.glsl', 'utf8');
-const shaderSrc_layerOrder = fs.readFileSync(__dirname + '/../gl/shaders/layer_order.glsl', 'utf8');
-const shaderSrc_selectionGlobals = fs.readFileSync(__dirname + '/../gl/shaders/selection_globals.glsl', 'utf8');
-const shaderSrc_selectionVertex = fs.readFileSync(__dirname + '/../gl/shaders/selection_vertex.glsl', 'utf8');
+import shaderSrc_accessors from '../gl/shaders/accessors.glsl';
+import shaderSrc_layerOrder from '../gl/shaders/layer_order.glsl';
+import shaderSrc_selectionGlobals from '../gl/shaders/selection_globals.glsl';
+import shaderSrc_selectionVertex from '../gl/shaders/selection_vertex.glsl';
 
 export class StyleManager {
 

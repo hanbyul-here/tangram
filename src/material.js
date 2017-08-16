@@ -1,8 +1,7 @@
 import GLSL from './gl/glsl';
 import {StyleParser} from './styles/style_parser';
 
-let fs = require('fs');
-const shaderSrc_material = fs.readFileSync(__dirname + '/gl/shaders/material.glsl', 'utf8');
+import shaderSrc_material from './gl/shaders/material.glsl';
 
 const material_props = ['emission', 'ambient', 'diffuse', 'specular'];
 

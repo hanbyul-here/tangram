@@ -14,9 +14,8 @@ import Thread from '../utils/thread';
 import WorkerBroker from '../utils/worker_broker';
 import debugSettings from '../utils/debug_settings';
 
-let fs = require('fs');
-const shaderSrc_selectionFragment = fs.readFileSync(__dirname + '/../gl/shaders/selection_fragment.glsl', 'utf8');
-const shaderSrc_rasters = fs.readFileSync(__dirname + '/../gl/shaders/rasters.glsl', 'utf8');
+import shaderSrc_selectionFragment from '../gl/shaders/selection_fragment.glsl';
+import shaderSrc_rasters from '../gl/shaders/rasters.glsl';
 
 // Base class
 

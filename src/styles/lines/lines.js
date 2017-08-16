@@ -8,7 +8,9 @@ import VertexLayout from '../../gl/vertex_layout';
 import {buildPolylines} from '../../builders/polylines';
 import renderDashArray from './dasharray';
 import Geo from '../../geo';
-import {shaderSrc_polygonsVertex, shaderSrc_polygonsFragment} from '../polygons/polygons';
+
+import shaderSrc_polygonsVertex from '../polygons/polygons_vertex.glsl';
+import shaderSrc_polygonsFragment from '../polygons/polygons_fragment.glsl';
 
 export var Lines = Object.create(Style);
 

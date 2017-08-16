@@ -1,4 +1,4 @@
-import version from './version';
+import {version} from '../../package.json';
 import Thread from './thread';
 import WorkerBroker from './worker_broker';
 

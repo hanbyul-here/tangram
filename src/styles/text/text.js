@@ -8,6 +8,8 @@ import LabelPoint from '../../labels/label_point';
 import LabelLine from '../../labels/label_line';
 import gl from '../../gl/constants'; // web workers don't have access to GL context, so import all GL constants
 
+import shaderSrc_textFragment from './text_fragment.glsl';
+
 export let TextStyle = Object.create(Points);
 
 Object.assign(TextStyle, {
