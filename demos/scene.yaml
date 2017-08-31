@@ -752,25 +752,6 @@ layers:
                     polygons:
                         style: polygons # disable building height shader
                         color: '#bddec5'
-
-        # point labels for buildings
-        labels:
-            filter:
-                $geometry: point
-                name: true
-                any:
-                    - { $zoom: { min: 17 }, height: { min: 50 } }
-                    - $zoom: { min: 18 }
-            draw:
-                text:
-                    priority: 7
-                    text_source: global.language_text_source
-                    font:
-                        family: Helvetica
-                        size: 8pt
-                        fill: darkred
-                        stroke: { color: white, width: 3 }
-
     amenities:
         data: { source: amenity}
         school:
