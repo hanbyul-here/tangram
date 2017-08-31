@@ -11,6 +11,10 @@ global:
             // Use preferred language label if available
             return (global.language && feature['name:'+global.language]) || feature.name;
         }
+    showSupermarket: true
+    showCafe: true
+    showRestaurant: true
+    showSchool: true
     feature_order: function () { return feature.sort_rank; }
 
 cameras:
@@ -640,29 +644,29 @@ layers:
                             size: 12px
                             stroke: { color: white, width: 4 }
 
-            major_road:
-                filter: { kind: major_road, $zoom: { min: 13 } }
-                draw:
-                    text:
-                        text_source: global.language_text_source
-                        priority: 3
-                        font:
-                            fill: '#666'
-                            family: Helvetica
-                            size: 14px
-                            stroke: { color: white, width: 4 }
+            # major_road:
+            #     filter: { kind: major_road, $zoom: { min: 13 } }
+            #     draw:
+            #         text:
+            #             text_source: global.language_text_source
+            #             priority: 3
+            #             font:
+            #                 fill: '#666'
+            #                 family: Helvetica
+            #                 size: 14px
+            #                 stroke: { color: white, width: 4 }
 
-            minor_road:
-                filter: { kind: minor_road, $zoom: { min: 15 } }
-                draw:
-                    text:
-                        text_source: global.language_text_source
-                        priority: 5
-                        font:
-                            fill: '#666'
-                            stroke: { color: white, width: 4 }
-                            family: Helvetica
-                            size: 12px
+            # minor_road:
+            #     filter: { kind: minor_road, $zoom: { min: 15 } }
+            #     draw:
+            #         text:
+            #             text_source: global.language_text_source
+            #             priority: 5
+            #             font:
+            #                 fill: '#666'
+            #                 stroke: { color: white, width: 4 }
+            #                 family: Helvetica
+            #                 size: 12px
 
             ferry:
                 filter: { kind: ferry }
@@ -769,7 +773,27 @@ layers:
 
     amenities:
         data: { source: amenity}
+        school:
+            visible: global.showSchool
+            filter:
+                amenity: [school, kindergarten]
+                any:
+                    - { $zoom: { min: 14 } }
+            draw:
+                icons:
+                    sprite: school
+                    priority: 1
+                    size: 16px
+                    text:
+                        text_source: global.language_text_source
+                        font:
+                            family: Lucida Grande
+                            size: 10pt
+                            style: italic
+                            fill: darkgreen
+                            stroke: { color: white, width: 3 }
         cafe:
+            visible: global.showCafe
             filter:
                 amenity: [coffee, bakery]
                 any:
@@ -789,6 +813,7 @@ layers:
                             stroke: { color: white, width: 3 }
         restaurant:
             filter:
+                visible: global.showRestaurant
                 amenity: [restaurant]
                 any:
                     - { $zoom: { min: 14 } }
@@ -836,12 +861,12 @@ layers:
 
     shops:
         data: { source: shop }
-
         draw:
             icons:
                 interactive: true
 
         supermarkets:
+            visible: global.showSupermarket
             filter:
                 shop: [supermarket, convenince]
                 any:
@@ -860,6 +885,7 @@ layers:
                             fill: darkgreen
                             stroke: { color: white, width: 3 }
         cafe:
+            visible: global.showCafe
             filter:
                 shop: [coffee, bakery]
                 any:
@@ -877,48 +903,6 @@ layers:
                             style: italic
                             fill: darkgreen
                             stroke: { color: white, width: 3 }
-
-        forest:
-            filter:
-                kind: forest
-                any:
-                    - { $zoom: { min: 7 }, tier: 1 }
-                    - { $zoom: { min: 9 }, tier: { max: 3 } }
-            draw:
-                text:
-                    priority: 2
-                    text_source: global.language_text_source
-                    font:
-                        family: Lucida Grande
-                        size: 9pt
-                        style: italic
-                        fill: darkgreen
-                        stroke: { color: white, width: 3 }
-
-        not_landuse:
-            filter:
-                name: true
-                not:
-                    kind: [peak, viewpoint, bicycle_rental, car_sharing, park, forest, cemetery, graveyard]
-                $zoom: { min: 15 }
-            draw:
-                icons:
-                    size: [[13, 12px], [15, 18px]]
-                    priority: 6
-
-            # add text label at higher zoom
-            labels:
-                filter:
-                    - { $zoom: { min: 17 } }
-                    - { $zoom: { min: 16 }, kind: station }
-                draw:
-                    icons:
-                        text:
-                            text_source: global.language_text_source
-                            font:
-                                family: Montserrat
-                                size: 12px
-                                fill: black
 
             # add generic icon at high zoom
             generic:
