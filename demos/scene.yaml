@@ -11,10 +11,10 @@ global:
             // Use preferred language label if available
             return (global.language && feature['name:'+global.language]) || feature.name;
         }
-    showSupermarket: true
-    showCafe: true
-    showRestaurant: true
-    showSchool: true
+    showSupermarket: false
+    showCafe: false
+    showRestaurant: false
+    showSchool: false
     feature_order: function () { return feature.sort_rank; }
 
 cameras:
