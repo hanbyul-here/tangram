@@ -812,15 +812,15 @@ layers:
                             fill: darkgreen
                             stroke: { color: white, width: 3 }
         restaurant:
+            visible: false
             filter:
-                visible: global.showRestaurant
                 amenity: [restaurant]
                 any:
                     - { $zoom: { min: 14 } }
             draw:
                 icons:
                     sprite: restaurant
-                    priority: 3
+                    priority: 1
                     size: 16px
                     text:
                         text_source: global.language_text_source
