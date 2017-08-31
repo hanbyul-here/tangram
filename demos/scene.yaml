@@ -812,7 +812,7 @@ layers:
                             fill: darkgreen
                             stroke: { color: white, width: 3 }
         restaurant:
-            visible: false
+            visible: global.showRestaurant
             filter:
                 amenity: [restaurant]
                 any:
