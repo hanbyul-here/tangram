@@ -5,7 +5,7 @@
     - styles/popup.yaml
 
 global:
-    language: kr # ISO 2-char code
+    language: en # ISO 2-char code
     language_text_source: |
         function() {
             if (feature.name) {
